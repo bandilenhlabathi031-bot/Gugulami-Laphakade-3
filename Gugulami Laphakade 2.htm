@@ -1,0 +1,350 @@
+<index.html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NgelosiYami ❤️ Our Love Story</title>
+
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #ffd1dc, #ff4d6d);
+                color: #fff;
+                overflow-x: hidden;
+            }
+
+            /* Pages */
+            .page {
+                display: none;
+                min-height: 100vh;
+                padding: 20px;
+                box-sizing: border-box;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .page.active {
+                display: flex;
+                opacity: 1;
+            }
+
+            /* Card */
+            .card {
+                background: rgba(255, 255, 255, 0.18);
+                backdrop-filter: blur(12px);
+                border-radius: 26px;
+                padding: 20px;
+                max-width: 700px;
+                width: 100%;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+                animation: fadeIn 0.8s ease;
+            }
+
+            .card.small {
+                max-width: 520px;
+                padding: 16px;
+            }
+
+            h1,
+            h2 {
+                margin-bottom: 10px;
+            }
+
+            p {
+                line-height: 1.5;
+            }
+
+            /* Photos */
+            .photos {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                margin: 15px 0;
+                flex-wrap: wrap;
+            }
+
+            .photos img {
+                width: 120px;
+                height: 120px;
+                border-radius: 16px;
+                object-fit: cover;
+                border: 2px solid rgba(255, 255, 255, 0.7);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            }
+
+            /* Timeline */
+            .timeline {
+                position: relative;
+                max-width: 400px;
+                margin: 15px auto;
+            }
+
+            .timeline::after {
+                content: '';
+                position: absolute;
+                width: 2px;
+                background: rgba(255, 255, 255, 0.6);
+                top: 0;
+                bottom: 0;
+                left: 50%;
+            }
+
+            .moment {
+                width: 50%;
+                padding: 8px;
+                position: relative;
+            }
+
+            .moment.left {
+                left: 0;
+            }
+
+            .moment.right {
+                left: 50%;
+            }
+
+            .moment::after {
+                content: '❤️';
+                position: absolute;
+                top: 10px;
+            }
+
+            .moment.left::after {
+                right: -12px;
+            }
+
+            .moment.right::after {
+                left: -12px;
+            }
+
+            .moment-content {
+                background: rgba(255, 255, 255, 0.22);
+                padding: 8px;
+                border-radius: 12px;
+            }
+
+            .moment-content img {
+                width: 70%;
+                border-radius: 12px;
+                margin-bottom: 6px;
+            }
+
+            /* Nav */
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 25px;
+            }
+
+            button {
+                border: none;
+                border-radius: 30px;
+                padding: 8px 20px;
+                font-size: 0.95rem;
+                cursor: pointer;
+                background: #fff;
+                color: #ff2f68;
+                font-weight: bold;
+            }
+
+            /* Floating Hearts */
+            .heart {
+                position: fixed;
+                bottom: -20px;
+                font-size: 18px;
+                animation: floatUp linear forwards;
+                pointer-events: none;
+                opacity: 0.8;
+                z-index: 1;
+            }
+
+            @keyframes floatUp {
+                from {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                }
+
+                to {
+                    transform: translateY(-110vh) scale(1.5);
+                    opacity: 0;
+                }
+            }
+
+            /* Fireworks */
+            canvas {
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(15px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="fireworks"></canvas>
+
+        <!-- PAGE 1 -->
+        <div class="page active" id="page1">
+            <div class="card">
+                <h1>NgelosiYami ❤️</h1>
+                <p>The woman who changed my world in the most beautiful way.</p>
+                <div class="photos">
+                    <img src="Images/20250427_153347.jpg" />
+                </div>
+                <div class="nav">
+                    <span></span>
+                    <button onclick="nextPage(2)">Next ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="page" id="page2">
+            <div class="card small">
+                <h2>Our First Month Together 💕</h2>
+                <p>The beginning of our forever.</p>
+
+                <div class="timeline">
+                    <div class="moment left">
+                        <div class="moment-content">
+                            <img src="Images/20250227_155202.jpg">
+                            <p>The spark that became love ✨</p>
+                        </div>
+                    </div>
+                    <div class="moment right">
+                        <div class="moment-content">
+                            <img src="Images/20250517_204917.jpg">
+                            <p>Choosing each other ❤️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav">
+                    <button onclick="nextPage(1)">⬅️ Back</button>
+                    <button onclick="nextPage(3)">Next ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="page" id="page3">
+            <div class="card">
+                <h2>Us 📸</h2>
+                <p>Every memory with you is my favorite.</p>
+                <div class="photos">
+                    <img src="Images/IMG-20250601-WA0019.jpg">
+                </div>
+                <div class="nav">
+                    <button onclick="nextPage(2)">⬅️ Back</button>
+                    <button onclick="nextPage(4)">Next ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 4 -->
+        <div class="page" id="page4">
+            <div class="card" id="valentine">
+                <h1>NgelosiYami 💌</h1>
+                <p>Will you be my Valentine?</p>
+                <p><strong>Ngiyokuthanda ingunaphakade Gugulami ❤️</strong></p>
+                <div id="countdown"></div>
+
+                <div class="nav">
+                    <button onclick="nextPage(3)">⬅️ Back</button>
+                    <button onclick="sayYes()">Yes 💖</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function nextPage(n) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById('page' + n).classList.add('active');
+            }
+
+            /* Floating hearts */
+            function createHeart() {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💖";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+                heart.style.fontSize = (Math.random() * 14 + 14) + "px";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 7000);
+            }
+            setInterval(createHeart, 400);
+
+            /* Fireworks */
+            const canvas = document.getElementById('fireworks');
+            const ctx = canvas.getContext('2d');
+            resize();
+            window.addEventListener('resize', resize);
+
+            function resize() {
+                canvas.width = innerWidth;
+                canvas.height = innerHeight;
+            }
+
+            function firework() {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height / 2;
+                for (let i = 0; i < 40; i++) {
+                    const angle = Math.PI * 2 * (i / 40);
+                    const speed = Math.random() * 4 + 2;
+                    let life = 60;
+                    (function animate(px, py) {
+                        if (life-- <= 0) return;
+                        ctx.fillStyle = Math.random() > 0.5 ? '#ff4d6d' : '#ffd1dc';
+                        ctx.beginPath();
+                        ctx.arc(px, py, 3, 0, Math.PI * 2);
+                        ctx.fill();
+                        requestAnimationFrame(() =>
+                            animate(px + Math.cos(angle) * speed, py + Math.sin(angle) * speed)
+                        );
+                    })(x, y);
+                }
+            }
+
+            function sayYes() {
+                setInterval(firework, 300);
+                document.getElementById('valentine').innerHTML = `
+      <h1>She said YES!!! 💕</h1>
+      <p>NgelosiYami, you are my Valentine — today and always ❤️</p>
+      <p><strong>Ngiyokuthanda ingunaphakade Gugulami ❤️</strong></p>
+    `;
+            }
+
+            /* Countdown */
+            function updateCountdown() {
+                const now = new Date();
+                let year = now.getFullYear();
+                let valentine = new Date(year, 1, 14);
+                if (now > valentine) valentine = new Date(year + 1, 1, 14);
+                const diff = valentine - now;
+                document.getElementById('countdown').innerText =
+                    `Countdown to Valentine’s Day: ${Math.floor(diff / 86400000)}d ${Math.floor(diff / 3600000) % 24}h ${Math.floor(diff / 60000) % 60}m ❤️`;
+            }
+            updateCountdown();
+            setInterval(updateCountdown, 60000);
+        </script>
+    </body>
+
+    </html>
